@@ -1,26 +1,117 @@
 @import "tailwindcss";
-
+@custom-variant dark (&:is(.dark *));
 :root {
+  --radius: 0.625rem;
+
+  /* Background */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #2a3547;
+
+  /* Primary */
+  --primary: #5d87ff;
+  --primary-dark: #252b48;
+  --primary-foreground: #ffffff;
+
+  /* Secondary */
+  --secondary: #49beff;
+  --secondary-dark: #173344;
+
+  /* Action */
+  --success: #13deb9;
+  --warning: #ffae1f;
+  --error: #fa896b;
+  --info: #539bff;
+
+  /* Action Dark */
+  --success-dark: #1b3c48;
+  --warning-dark: #3e3936;
+  --error-dark: #402e32;
+  --info-dark: #1e3146;
+
+  /* Gray */
+  --gray-700: #333f55;
+  --gray-600: #5a6a85;
+  --gray-500: #7c8fac;
+  --gray-300: #dfe5ef;
+  --gray-200: #eaeff4;
+  --gray-100: #f2f6fa;
+
+  /* UI */
+  --border: #dfe5ef;
+  --card: #ffffff;
+  --input: #dfe5ef;
+
+  --ring: #5d87ff;
 }
 
-@theme inline {
+/* ================= DARK THEME ================= */
+
+.dark {
+  /* Background */
+  --background: #202936;
+  --foreground: #eaeff4;
+
+  /* Primary */
+  --primary: #5d87ff;
+  --primary-dark: #252b48;
+
+  /* Secondary */
+  --secondary: #49beff;
+  --secondary-dark: #173344;
+
+  /* Action */
+  --success: #13deb9;
+  --warning: #ffae1f;
+  --error: #fa896b;
+  --info: #539bff;
+
+  /* Action Dark */
+  --success-dark: #1b3c48;
+  --warning-dark: #3e3936;
+  --error-dark: #402e32;
+  --info-dark: #1e3146;
+
+  /* Gray */
+  --gray-700: #333f55;
+  --gray-600: #5a6a85;
+  --gray-500: #7c8fac;
+  --gray-300: #dfe5ef;
+  --gray-200: #eaeff4;
+  --gray-100: #f2f6fa;
+
+  /* UI */
+  --border: #333f55;
+  --card: #252b48;
+  --input: #333f55;
+
+  --ring: #5d87ff;
+}
+
+/* ================= TAILWIND THEME ================= */
+
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-dark: var(--secondary-dark);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
+
+  --color-border: var(--border);
+  --color-card: var(--card);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ================= BASE ================= */
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
