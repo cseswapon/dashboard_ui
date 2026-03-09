@@ -20,7 +20,7 @@ const ThemeToggle: React.FC = () => {
       shape="circle"
       icon={theme === "dark" ? <SunOutlined /> : <MoonOutlined />}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="bg-accent border-border text-foreground hover:text-primary transition-all duration-300"
+      className="dark:bg-primary/10! border-border text-foreground dark:text-white! hover:text-primary transition-all duration-300"
     />
   );
 };
