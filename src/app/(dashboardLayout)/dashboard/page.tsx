@@ -1,4 +1,10 @@
 import Card, { IDashboardCard } from "@/components/module/dashboard/Card";
+import Monthly from "@/components/module/dashboard/chart/Monthly";
+import Revenue from "@/components/module/dashboard/chart/Revenue";
+import Stats from "@/components/module/dashboard/chart/Stats";
+import WeeklyStats from "@/components/module/dashboard/chart/Weekly";
+import Yearnly from "@/components/module/dashboard/chart/Yearnly";
+import TopProjects from "@/components/module/dashboard/TopProject";
 import React from "react";
 
 const DashboardPage: React.FC = () => {
@@ -59,6 +65,26 @@ const DashboardPage: React.FC = () => {
         {cardMenu.map((item, i) => (
           <Card key={i} item={item} />
         ))}
+      </div>
+      <div className="grid grid-cols-12 my-10 gap-10">
+        <div className="col-span-8">
+          <Revenue />
+        </div>
+        <div className="col-span-4">
+          <Yearnly />
+          <Monthly />
+        </div>
+      </div>
+      <div>
+        <Stats />
+      </div>
+      <div className="grid grid-cols-12 my-10 gap-10">
+        <div className="col-span-3">
+          <WeeklyStats />
+        </div>
+        <div className="col-span-9">
+          <TopProjects />
+        </div>
       </div>
     </div>
   );
