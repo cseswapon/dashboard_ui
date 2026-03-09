@@ -9,7 +9,7 @@ export default function DashboardLayout({
   return (
     <div className="flex h-screen overflow-hidden">
       {/* Sidebar */}
-      <div className="w-64 shrink-0 border-r border-gray-200">
+      <div className="w-64 md:block hidden shrink-0 border-r border-gray-200">
         <Sidebar />
       </div>
 
@@ -21,7 +21,7 @@ export default function DashboardLayout({
         </div>
 
         {/* Scrollable Content */}
-        <main className="flex-1 overflow-y-auto p-4">{children}</main>
+        <main className="flex-1 overflow-y-auto md:p-4 p-1">{children}</main>
       </div>
     </div>
   );

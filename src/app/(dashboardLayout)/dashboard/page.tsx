@@ -14,7 +14,7 @@ const DashboardPage: React.FC = () => {
       icon: "/dashboard/employe.png",
       count: 96,
       color: "bg-[#EDF2FF]",
-      darkColor: "dark:bg-[#EDF2FF1A]", // ১০% অপাসিটি
+      darkColor: "dark:bg-[#EDF2FF1A]",
       textColor: "text-[#5D87FF]",
     },
     {
@@ -60,13 +60,13 @@ const DashboardPage: React.FC = () => {
   ];
 
   return (
-    <div className="p-8 min-h-screen">
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+    <div className="md:p-8 p-2 min-h-screen">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6">
         {cardMenu.map((item, i) => (
           <Card key={i} item={item} />
         ))}
       </div>
-      <div className="grid grid-cols-12 my-10 gap-10">
+      <div className="grid md:grid-cols-12 my-10 gap-10">
         <div className="col-span-8">
           <Revenue />
         </div>
@@ -78,7 +78,7 @@ const DashboardPage: React.FC = () => {
       <div>
         <Stats />
       </div>
-      <div className="grid grid-cols-12 my-10 gap-10">
+      <div className="grid md:grid-cols-12 my-10 gap-10">
         <div className="col-span-3">
           <WeeklyStats />
         </div>

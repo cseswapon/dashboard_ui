@@ -6,6 +6,7 @@ import { ChevronUp, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { menuGroups, SidebarItem } from "@/constant/menue_Data";
 import { Button } from "antd";
+import Link from "next/link";
 
 const Sidebar = () => {
   const [activeItem, setActiveItem] = useState("Modern");
@@ -26,13 +27,15 @@ const Sidebar = () => {
   return (
     <div className="h-full flex flex-col">
       <div className="px-6 py-5 border-b border-gray-100">
-        <Image
-          width={120}
-          height={40}
-          alt="logo"
-          src="/logo/easy.png"
-          className="object-contain"
-        />
+        <Link href="/">
+          <Image
+            width={120}
+            height={40}
+            alt="logo"
+            src="/logo/easy.png"
+            className="object-contain"
+          />
+        </Link>
       </div>
 
       <div className="flex-1 overflow-y-auto py-4 scrollbar-hide">
