@@ -135,13 +135,14 @@ const TopProjects = () => {
         </Select>
       </div>
 
-      <Table
-        columns={columns}
-        dataSource={data}
-        pagination={false}
-        className="custom-ant-table"
-        scroll={{ x: "max-content" }}
-      />
+      <div className="w-full overflow-x-auto">
+        <Table
+          columns={columns}
+          dataSource={data}
+          pagination={false}
+          scroll={{ x: 400 }}
+        />
+      </div>
     </div>
   );
 };

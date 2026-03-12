@@ -4,9 +4,14 @@ import { useState } from "react";
 import Image from "next/image";
 import { ChevronUp, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { menuGroups, SidebarItem } from "@/constant/menue_Data";
+import {
+  menuGroups,
+  SidebarItem,
+  sideBarTranslations,
+} from "@/constant/menue_Data";
 import { Button } from "antd";
 import Link from "next/link";
+import { useSidebar } from "@/hooks/useSidebar";
 
 const Sidebar = () => {
   const [activeItem, setActiveItem] = useState("Modern");
@@ -23,9 +28,14 @@ const Sidebar = () => {
       }
     }
   };
+  const { language } = useSidebar();
+
+  const t = (text: string) => {
+    return sideBarTranslations[language]?.[text] || text;
+  };
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-full flex flex-col border-r border-gray-100">
       <div className="px-6 py-5 border-b border-gray-100">
         <Link href="/">
           <Image
@@ -47,8 +57,9 @@ const Sidebar = () => {
               idx !== 0 && "pt-4 border-t border-gray-100",
             )}
           >
+            {/* গ্রুপ টাইটেল অনুবাদ */}
             <p className="px-4 mb-3 text-xs tracking-widest text-slate-400 uppercase">
-              {group.title}
+              {t(group.title)}
             </p>
 
             <ul className="space-y-1">
@@ -69,7 +80,9 @@ const Sidebar = () => {
                           size={19}
                           strokeWidth={activeItem === item.name ? 2.5 : 2}
                         />
-                        <span className="text-sm font-normal">{item.name}</span>
+                        <span className="text-sm font-normal">
+                          {t(item.name)}
+                        </span>
                       </div>
                       <div className="flex items-center gap-2">
                         {item.badge && (
@@ -84,7 +97,7 @@ const Sidebar = () => {
                                   ),
                             )}
                           >
-                            {item.badge}
+                            {t(item.badge)}
                           </span>
                         )}
 
@@ -109,7 +122,7 @@ const Sidebar = () => {
                             : "text-slate-400",
                         )}
                       >
-                        {item.subtext}
+                        {t(item.subtext)}
                       </p>
                     )}
                   </li>
@@ -130,7 +143,7 @@ const Sidebar = () => {
                               : "text-slate-500 hover:text-blue-500",
                           )}
                         >
-                          {sub.name}
+                          {t(sub.name)}
                         </li>
                       ))}
                     </ul>
@@ -145,17 +158,26 @@ const Sidebar = () => {
             <div className="grid grid-cols-2">
               <div>
                 <h3 className="font-bold text-lg text-gray-500">
-                  Unlimited <br /> Access
+                  {language === "bn"
+                    ? "আনলিমিটেড অ্যাক্সেস"
+                    : language === "ar"
+                      ? "وصول غير محدود"
+                      : "Unlimited Access"}
                 </h3>
-                <Button className="bg-primary! text-white! mt-3">Signup</Button>
+                <Button className="bg-primary! text-white! mt-3">
+                  {language === "bn"
+                    ? "সাইনআপ"
+                    : language === "ar"
+                      ? "سجل الآن"
+                      : "Signup"}
+                </Button>
               </div>
               <div>
                 <Image
                   width={120}
                   height={40}
-                  style={{ zoom: 1.2 }}
-                  alt="rocket"
                   src="/upgrade-rocket.png"
+                  alt="rocket"
                   className="object-contain absolute -top-6 -right-2"
                 />
               </div>

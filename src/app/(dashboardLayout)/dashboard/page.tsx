@@ -67,10 +67,10 @@ const DashboardPage: React.FC = () => {
         ))}
       </div>
       <div className="grid md:grid-cols-12 my-10 gap-10">
-        <div className="col-span-8">
+        <div className="md:col-span-8">
           <Revenue />
         </div>
-        <div className="col-span-4">
+        <div className="md:col-span-4">
           <Yearnly />
           <Monthly />
         </div>
@@ -79,10 +79,10 @@ const DashboardPage: React.FC = () => {
         <Stats />
       </div>
       <div className="grid md:grid-cols-12 my-10 gap-10">
-        <div className="col-span-3">
+        <div className="md:col-span-3">
           <WeeklyStats />
         </div>
-        <div className="col-span-9">
+        <div className="md:col-span-9 w-full overflow-x-auto">
           <TopProjects />
         </div>
       </div>
