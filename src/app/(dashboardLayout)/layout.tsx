@@ -26,7 +26,6 @@ export default function DashboardLayout({
         </div>
       )}
 
-      {/* {isOpen && <div className="fixed inset-0 bg-black/40 z-40 lg:hidden" />} */}
       <div className={`flex flex-col flex-1 transition-all duration-300`}>
         <Navbar />
         <main className="flex-1 overflow-y-auto p-6">{children}</main>
